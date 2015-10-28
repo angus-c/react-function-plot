@@ -4,4 +4,4 @@ ___
 WORK IN PROGRESS  
 ___
 
-A React componnet to renders JS functions as SVG paths
+A React componnet to render a JS function as an SVG path
