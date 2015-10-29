@@ -5,15 +5,13 @@ import React from 'react';
 class Plot extends React.Component {
   constructor(props) {
     super(props);
-    const {height, width, thickness} = props;
-    this.plotter = new Plotter('.plot', {height, width, thickness});
+    this.plotSelector = ['.plot', this.props.className].join('.');
+    this.plotter = new Plotter({selector: this.plotSelector, thickness: props.thickness});
   }
 
   static propTypes = {
-    className: React.PropTypes.string,
+    className: React.PropTypes.string.isRequired,
     fn: React.PropTypes.func,
-    height: React.PropTypes.number,
-    width: React.PropTypes.number,
     thickness: React.PropTypes.number
   }
 

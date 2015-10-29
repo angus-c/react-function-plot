@@ -1,13 +1,14 @@
 module.exports = function(config) {
   config.set({
-    browsers: ['Firefox'],
+    browsers: ['Chrome'],
     files: [
       'tests/*.spec.js'
     ],
     frameworks: ['mocha', 'chai'],
     preprocessors: {
-      'lib/*.js': ['webpack', 'sourcemap'],
-      'tests/*.spec.js': ['webpack', 'sourcemap']
+      'src/**/*.js': ['webpack'],
+      'src/**/*.jsx': ['webpack'],
+      'tests/*.spec.js': ['webpack']
     },
     plugins: [
       'karma-chrome-launcher',
@@ -22,7 +23,7 @@ module.exports = function(config) {
     webpack: {
       module: {
         loaders: [
-          { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime' },
+          { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?stage=0&optional=runtime' },
         ],
       },
       watch: true,
