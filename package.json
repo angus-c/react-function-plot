@@ -1,0 +1,51 @@
+{
+  "name": "react-function-plot",
+  "version": "0.0.1",
+  "description": "react component to plot a function as an svg path",
+  "author": "Angus Croll",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "webpack",
+    "prepublish": "npm run compile",
+    "test": "karma start --single-run",
+    "testc": "karma start --auto-watch"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angus-c/react-function-plot.git"
+  },
+  "keywords": [
+    "react",
+    "d3",
+    "svg",
+    "line",
+    "function"
+  ],
+  "devDependencies": {
+    "babel": "^5.1.13",
+    "babel-core": "^5.1.11",
+    "babel-loader": "^5.0.0",
+    "css-loader": "^0.20.1",
+    "eslint": "^1.7.2",
+    "eslint-plugin-react": "^3.6.2",
+    "karma": "^0.13.11",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-mocha": "^0.2.0",
+    "karma-sourcemap-loader": "^0.3.4",
+    "karma-webpack": "^1.5.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.8.9"
+  },
+  "dependencies": {
+    "babel-eslint": "^4.0.5",
+    "babel-runtime": "^5.5.8",
+    "classnames": "^2.2.0",
+    "d3": "^3.5.6",
+    "function-to-string": "^0.2.0",
+    "react": "^0.14.1",
+    "react-dom": "^0.14.1"
+  }
+}
