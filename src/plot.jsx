@@ -6,11 +6,14 @@ class Plot extends React.Component {
   constructor(props) {
     super(props);
     const {height, width, thickness} = props;
-    this.plotter = new Plotter('.plot', {height, width, thickness});
+    this.plotter = new Plotter(
+      ['.plot', this.props.className].join('.'),
+      {height, width, thickness}
+    );
   }
 
   static propTypes = {
-    className: React.PropTypes.string,
+    className: React.PropTypes.string.isRequired,
     fn: React.PropTypes.func,
     height: React.PropTypes.number,
     width: React.PropTypes.number,

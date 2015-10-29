@@ -7,31 +7,15 @@
     <meta name="author" content="Angus Croll">
     
     <style>
-    body {display: flex; font-family: helvetica}
-    .diyWrapper {flex: 1}
-    .easingsWrapper {flex: 1}
-    .diyContainer {background-color: #eee; margin-top: 10px; width: 300px; height: 300px}
-    .easingsContainer {background-color: #eee; margin-top: 10px; width: 300px; height: 300px}
+    body {font-family: helvetica}
+    .outer {display: flex; justify-content: flex-start}
+    .panel {background-color: #eee; margin: 10px 30px 0 0; width: 300px; height: 300px}
+    select {font-size: 18pt; width: 60%}
     </style>
   </head>
 
   <body>
-    <div class='diyWrapper'>
-      <h3>Type a Function</h3>
-      <input id='diyInput' type='text' value='x * x'>
-      <div class='diyContainer'>
-    </div>
-    <div class='easingsWrapper'>
-      <h3>Easings</h3>
-      <select id='easingsSelector'>
-        <option id='linear'>linear</linear>
-        <option selected id='easeInQuad'>ease-in quad</linear>
-        <option id='easeOutQuad'>ease-out quad</linear>
-        <option id='easeInOutQuad'>ease-in-out quad</linear>
-        <option id='easeInCubic'>ease-in cubic</linear>
-      </select>
-      <div class='easingsContainer'>
-    </div>
+    <div class='reactRoot'/>
     <script src="dist/index.js"></script>
   </body>
 </html>

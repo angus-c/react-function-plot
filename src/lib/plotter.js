@@ -16,7 +16,7 @@ export default class Plotter {
     const lineFunction =
       d3.svg.line()
         .x(i => i)
-        .y(i => width * fn(i / width) + thickness / 2)
+        .y(i => height - (width * fn(i / width) + thickness / 2))
         .interpolate('linear');
 
     const svgContainer =
@@ -33,11 +33,11 @@ export default class Plotter {
   }
 
   updatePath(fn) {
-    const {width, thickness} = this.dimensions;
+    const {height, width, thickness} = this.dimensions;
     const lineFunction =
       d3.svg.line()
         .x(i => i)
-        .y(i => width * fn(i / width) + thickness / 2)
+        .y(i => height - (width * fn(i / width) + thickness / 2))
         .interpolate('linear');
 
     const svgContainer = d3.select(this.selector).transition();
