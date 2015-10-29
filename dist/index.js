@@ -84,8 +84,8 @@
 
 	    _get(Object.getPrototypeOf(Examples.prototype), 'constructor', this).call(this, props);
 	    this.state = {
-	      expression: 'x * x * x * x',
-	      easingName: 'easeInOutQuad'
+	      expression: 'x * x',
+	      easingName: 'easeOutQuad'
 	    };
 	  }
 
@@ -100,89 +100,122 @@
 
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: 'outer' },
+	        null,
 	        _react2['default'].createElement(
-	          'form',
-	          { className: 'diyWrapper', onSubmit: function (e) {
-	              return _this.onDIYSubmit(e);
-	            } },
+	          'h2',
+	          null,
+	          'Examples using react-function-plot'
+	        ),
+	        _react2['default'].createElement(
+	          'span',
+	          { className: 'italic' },
+	          'react-function-plot'
+	        ),
+	        _react2['default'].createElement(
+	          'span',
+	          null,
+	          ' is a React component for rendering JS functions as SVG paths (',
 	          _react2['default'].createElement(
-	            'h3',
-	            null,
-	            'Edit the function expression'
+	            'a',
+	            { href: 'https://github.com/angus-c/react-function-plot' },
+	            'github'
 	          ),
+	          ', ',
 	          _react2['default'].createElement(
-	            'span',
-	            null,
-	            'return y = '
+	            'a',
+	            { href: 'https://www.npmjs.com/package/react-function-plot' },
+	            'npm'
 	          ),
-	          _react2['default'].createElement('input', {
-	            id: 'diyInput',
-	            ref: 'expression',
-	            type: 'text',
-	            defaultValue: this.state.expression
-	          }),
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'panel diyContainer' },
-	            _react2['default'].createElement(_srcPlotJsx2['default'], {
-	              className: 'diy',
-	              fn: this.functionFromExpression(expression),
-	              height: 300,
-	              width: 300,
-	              thickness: 4
-	            })
-	          )
+	          ')'
 	        ),
 	        _react2['default'].createElement(
 	          'div',
-	          { className: 'easingsWrapper' },
+	          { className: 'outer' },
 	          _react2['default'].createElement(
-	            'h3',
-	            null,
-	            'Select an Easing'
-	          ),
-	          _react2['default'].createElement(
-	            'select',
-	            { id: 'easingsSelector', onChange: function (e) {
-	                return _this.onEasingChange(e);
+	            'form',
+	            { className: 'diyWrapper', onSubmit: function (e) {
+	                return _this.onDIYSubmit(e);
 	              } },
 	            _react2['default'].createElement(
-	              'option',
-	              { id: 'linear' },
-	              'linear'
+	              'h3',
+	              null,
+	              'Edit the function expression'
 	            ),
 	            _react2['default'].createElement(
-	              'option',
-	              { id: 'easeInQuad' },
-	              'ease-in quad'
+	              'div',
+	              { className: 'code inline control' },
+	              'return '
 	            ),
+	            _react2['default'].createElement('input', { className: 'code inline',
+	              autoFocus: true,
+	              id: 'diyInput',
+	              ref: 'expression',
+	              type: 'text',
+	              defaultValue: this.state.expression
+	            }),
 	            _react2['default'].createElement(
-	              'option',
-	              { id: 'easeOutQuad' },
-	              'ease-out quad'
-	            ),
-	            _react2['default'].createElement(
-	              'option',
-	              { defaultValue: true, id: 'easeInOutQuad' },
-	              'ease-in-out quad'
-	            ),
-	            _react2['default'].createElement(
-	              'option',
-	              { id: 'easeInCubic' },
-	              'ease-in cubic'
+	              'div',
+	              { className: 'panel diyContainer' },
+	              _react2['default'].createElement(_srcPlotJsx2['default'], {
+	                className: 'diy',
+	                fn: this.functionFromExpression(expression),
+	                thickness: 4
+	              })
 	            )
 	          ),
 	          _react2['default'].createElement(
 	            'div',
-	            { className: 'panel easingsContainer' },
-	            _react2['default'].createElement(_srcPlotJsx2['default'], {
-	              className: 'easing',
-	              fn: this.functionFromEasingName(easingName),
-	              height: 300,
-	              width: 300,
-	              thickness: 4
-	            })
+	            { className: 'easingsWrapper' },
+	            _react2['default'].createElement(
+	              'h3',
+	              { className: 'inline' },
+	              'Select an Easing'
+	            ),
+	            _react2['default'].createElement(
+	              'select',
+	              { id: 'easingsSelector', onChange: function (e) {
+	                  return _this.onEasingChange(e);
+	                } },
+	              _react2['default'].createElement(
+	                'option',
+	                { id: 'linear' },
+	                'linear'
+	              ),
+	              _react2['default'].createElement(
+	                'option',
+	                { id: 'easeInQuad' },
+	                'ease-in quad'
+	              ),
+	              _react2['default'].createElement(
+	                'option',
+	                { id: 'easeOutQuad' },
+	                'ease-out quad'
+	              ),
+	              _react2['default'].createElement(
+	                'option',
+	                { selected: true, id: 'easeInOutQuad' },
+	                'ease-in-out quad'
+	              ),
+	              _react2['default'].createElement(
+	                'option',
+	                { id: 'easeInCubic' },
+	                'ease-in cubic'
+	              )
+	            ),
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'code ownline control' },
+	              this.bodyFromFunction(this.functionFromEasingName(easingName))
+	            ),
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'panel easingsContainer' },
+	              _react2['default'].createElement(_srcPlotJsx2['default'], {
+	                className: 'easing',
+	                fn: this.functionFromEasingName(easingName),
+	                thickness: 4
+	              })
+	            )
 	          )
 	        )
 	      );
@@ -201,6 +234,11 @@
 	      this.setState({
 	        easingName: e.target.options[e.target.selectedIndex].id
 	      });
+	    }
+	  }, {
+	    key: 'bodyFromFunction',
+	    value: function bodyFromFunction(fn) {
+	      return fn.toString().replace(/^[^{]*{\s*/, '').replace(/\s*}[^}]*$/, '');
 	    }
 	  }, {
 	    key: 'functionFromEasingName',
@@ -20315,11 +20353,8 @@
 	    _classCallCheck(this, Plot);
 
 	    _get(Object.getPrototypeOf(Plot.prototype), 'constructor', this).call(this, props);
-	    var height = props.height;
-	    var width = props.width;
-	    var thickness = props.thickness;
-
-	    this.plotter = new _libPlotter2['default'](['.plot', this.props.className].join('.'), { height: height, width: width, thickness: thickness });
+	    this.plotSelector = ['.plot', this.props.className].join('.');
+	    this.plotter = new _libPlotter2['default']({ selector: this.plotSelector, thickness: props.thickness });
 	  }
 
 	  _createClass(Plot, [{
@@ -20343,8 +20378,6 @@
 	    value: {
 	      className: _react2['default'].PropTypes.string.isRequired,
 	      fn: _react2['default'].PropTypes.func,
-	      height: _react2['default'].PropTypes.number,
-	      width: _react2['default'].PropTypes.number,
 	      thickness: _react2['default'].PropTypes.number
 	    },
 	    enumerable: true
@@ -20380,61 +20413,63 @@
 
 	var _d32 = _interopRequireDefault(_d3);
 
-	var defaultDimensions = {
-	  height: 200,
-	  width: 200,
-	  thickness: 4
-	};
+	var defaultThickness = 4;
 
 	var Plotter = (function () {
-	  function Plotter() {
-	    var selector = arguments.length <= 0 || arguments[0] === undefined ? 'body' : arguments[0];
-	    var dimensions = arguments.length <= 1 || arguments[1] === undefined ? defaultDimensions : arguments[1];
+	  function Plotter(_ref) {
+	    var _ref$selector = _ref.selector;
+	    var selector = _ref$selector === undefined ? 'body' : _ref$selector;
+	    var _ref$thickness = _ref.thickness;
+	    var thickness = _ref$thickness === undefined ? defaultThickness : _ref$thickness;
 
 	    _classCallCheck(this, Plotter);
 
-	    _Object$assign(this, { selector: selector, dimensions: dimensions });
+	    _Object$assign(this, { selector: selector, thickness: thickness });
 	  }
 
 	  _createClass(Plotter, [{
 	    key: 'addPath',
 	    value: function addPath(fn) {
-	      var _dimensions = this.dimensions;
-	      var height = _dimensions.height;
-	      var width = _dimensions.width;
-	      var thickness = _dimensions.thickness;
+	      this.d3Container = _d32['default'].select(this.selector);
 
-	      var lineFunction = _d32['default'].svg.line().x(function (i) {
-	        return i;
-	      }).y(function (i) {
-	        return height - (width * fn(i / width) + thickness / 2);
-	      }).interpolate('linear');
+	      // render in a square SVG, adjust margins to center
+	      var width = this.d3Container[0][0].getBoundingClientRect().width;
+	      var height = this.d3Container[0][0].getBoundingClientRect().height;
+	      var marginOffset = Math.abs((width - height) / 2);
+	      var marginToAdjust = width > height ? 'margin-left' : 'margin-top';
+	      this.size = Math.min(width, height);
 
-	      var svgContainer = _d32['default'].select(this.selector).append('svg').attr('width', width).attr('height', height);
+	      var size = this.size;
+	      var thickness = this.thickness;
 
-	      svgContainer.append('path').attr('d', lineFunction([].concat(_toConsumableArray(new Array(width))).map(function (_, i) {
+	      var svgContainer = this.d3Container.append('svg').attr('width', size).attr('height', size).attr('style', marginToAdjust + ': ' + marginOffset + 'px');
+
+	      svgContainer.append('path').attr('d', this.getLineFunction(fn)([].concat(_toConsumableArray(new Array(Math.round(size)))).map(function (_, i) {
 	        return i;
 	      }))).attr('stroke', 'blue').attr('stroke-width', thickness).attr('fill', 'none');
 	    }
 	  }, {
 	    key: 'updatePath',
 	    value: function updatePath(fn) {
-	      var _dimensions2 = this.dimensions;
-	      var height = _dimensions2.height;
-	      var width = _dimensions2.width;
-	      var thickness = _dimensions2.thickness;
+	      var size = this.size;
 
-	      var lineFunction = _d32['default'].svg.line().x(function (i) {
-	        return i;
-	      }).y(function (i) {
-	        return height - (width * fn(i / width) + thickness / 2);
-	      }).interpolate('linear');
+	      var svgContainer = this.d3Container.transition();
 
-	      var svgContainer = _d32['default'].select(this.selector).transition();
-
-	      svgContainer.select('path').attr('d', lineFunction([].concat(_toConsumableArray(new Array(width))).map(function (_, i) {
+	      svgContainer.select('path').attr('d', this.getLineFunction(fn)([].concat(_toConsumableArray(new Array(Math.round(size)))).map(function (_, i) {
 	        return i;
 	      })));
+	    }
+	  }, {
+	    key: 'getLineFunction',
+	    value: function getLineFunction(fn) {
+	      var size = this.size;
+	      var thickness = this.thickness;
+
+	      return _d32['default'].svg.line().x(function (i) {
+	        return i;
+	      }).y(function (i) {
+	        return size - thickness / 2 - size * fn(i / size) * (1 - thickness / size);
+	      }).interpolate('linear');
 	    }
 	  }]);
 

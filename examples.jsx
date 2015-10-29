@@ -8,51 +8,58 @@ class Examples extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expression: 'x * x * x * x',
-      easingName: 'easeInOutQuad'
+      expression: 'x * x',
+      easingName: 'easeOutQuad'
     };
   }
 
   render() {
     const {expression, easingName} = this.state;
     return (
-      <div className='outer'>
-        <form className='diyWrapper' onSubmit={e => this.onDIYSubmit(e)}>
-          <h3>Edit the function expression</h3>
-          <span>return y = </span>
-          <input
-            id='diyInput'
-            ref='expression'
-            type='text'
-            defaultValue={this.state.expression}
-          />
-          <div className='panel diyContainer'>
-            <Plot
-              className='diy'
-              fn={this.functionFromExpression(expression)}
-              height={300}
-              width={300}
-              thickness={4}
+      <div>
+        <h2>Examples using react-function-plot</h2>
+        <span className='italic'>react-function-plot</span><span> is a React component for
+          rendering JS functions as SVG paths
+          (<a href="https://github.com/angus-c/react-function-plot">github</a>,&nbsp;
+           <a href="https://www.npmjs.com/package/react-function-plot">npm</a>)</span>
+        <div className='outer'>
+          <form className='diyWrapper' onSubmit={e => this.onDIYSubmit(e)}>
+            <h3>Edit the function expression</h3>
+            <div className='code inline control'>return </div>
+            <input className='code inline'
+              autoFocus
+              id='diyInput'
+              ref='expression'
+              type='text'
+              defaultValue={this.state.expression}
             />
-          </div>
-        </form>
-        <div className='easingsWrapper'>
-          <h3>Select an Easing</h3>
-          <select id='easingsSelector' onChange={e => this.onEasingChange(e)}>
-            <option id='linear'>linear</option>
-            <option id='easeInQuad'>ease-in quad</option>
-            <option id='easeOutQuad'>ease-out quad</option>
-            <option defaultValue id='easeInOutQuad'>ease-in-out quad</option>
-            <option id='easeInCubic'>ease-in cubic</option>
-          </select>
-          <div className='panel easingsContainer'>
-            <Plot
-              className='easing'
-              fn={this.functionFromEasingName(easingName)}
-              height={300}
-              width={300}
-              thickness={4}
-            />
+            <div className='panel diyContainer'>
+              <Plot
+                className='diy'
+                fn={this.functionFromExpression(expression)}
+                thickness={4}
+              />
+            </div>
+          </form>
+          <div className='easingsWrapper'>
+            <h3 className='inline'>Select an Easing</h3>
+            <select id='easingsSelector' onChange={e => this.onEasingChange(e)}>
+              <option id='linear'>linear</option>
+              <option id='easeInQuad'>ease-in quad</option>
+              <option id='easeOutQuad'>ease-out quad</option>
+              <option selected id='easeInOutQuad'>ease-in-out quad</option>
+              <option id='easeInCubic'>ease-in cubic</option>
+            </select>
+            <div className='code ownline control'>
+              {this.bodyFromFunction(this.functionFromEasingName(easingName))}
+            </div>
+            <div className='panel easingsContainer'>
+              <Plot
+                className='easing'
+                fn={this.functionFromEasingName(easingName)}
+                thickness={4}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -70,6 +77,10 @@ class Examples extends React.Component {
     this.setState({
       easingName: e.target.options[e.target.selectedIndex].id
     });
+  }
+
+  bodyFromFunction(fn) {
+    return fn.toString().replace(/^[^{]*{\s*/, '').replace(/\s*}[^}]*$/, '');
   }
 
   functionFromEasingName(easingName) {
