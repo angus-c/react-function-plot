@@ -63,3 +63,5 @@ x => Math.random();
 Here's a [working example](http://anguscroll.com/react-function-plot/) and here's [the source](https://github.com/angus-c/react-function-plot/blob/gh-pages/examples.jsx) for the
 example component.  
 
+![example screenshot](http://anguscroll.com/react-function-plot/screenshots/expression-and-easing.png)
+
