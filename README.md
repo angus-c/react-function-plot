@@ -27,15 +27,36 @@ then
 
 ```jsx
 <Plot
-  className='easing'
-  fn={this.functionFromEasingName(easingName)}
+  className='myPlot'
+  fn={myFunction}
   height={300}
   width={300}
   thickness={4}
 />
 ```
 
-Note: `className` is a required prop – it allows multiple Prop components to be used on the same page. 
+`myFunction` is any JavaScript function that takes a single numeric argument. 
+e.g.
+```js
+// es5
+function(t) {return 0.9/t} 
+```
+
+or
+
+```js
+// es2015
+x => x * x
+```
+
+or even
+
+```js
+// es2015
+x => Math.random();
+```
+
+`className` is a required prop – it allows multiple `Plot` components to be used on the same page. 
 
 ### Example:
 
