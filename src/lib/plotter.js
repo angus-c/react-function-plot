@@ -9,6 +9,7 @@ const defaultDimensions = {
 export default class Plotter {
   constructor(selector = 'body', dimensions = defaultDimensions) {
     Object.assign(this, {selector, dimensions});
+    this.thicknessCorrection = 1 - this.dimensions.thickness / this.dimensions.height;
   }
 
   addPath(fn) {
@@ -16,7 +17,7 @@ export default class Plotter {
     const lineFunction =
       d3.svg.line()
         .x(i => i)
-        .y(i => height - (width * fn(i / width) + thickness / 2))
+        .y(i => height - thickness / 2 - width * fn(i / width) * this.thicknessCorrection)
         .interpolate('linear');
 
     const svgContainer =
@@ -37,7 +38,7 @@ export default class Plotter {
     const lineFunction =
       d3.svg.line()
         .x(i => i)
-        .y(i => height - (width * fn(i / width) + thickness / 2))
+        .y(i => height - thickness / 2 - width * fn(i / width) * this.thicknessCorrection)
         .interpolate('linear');
 
     const svgContainer = d3.select(this.selector).transition();
