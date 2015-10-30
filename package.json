@@ -3,9 +3,9 @@
   "version": "0.0.2",
   "description": "react component to plot a function as an svg path",
   "author": "Angus Croll",
-  "main": "dist/index.js",
+  "main": "dist/plot.js",
   "scripts": {
-    "compile": "webpack",
+    "compile": "babel --stage 0 --optional runtime src --out-dir dist",
     "prepublish": "npm run compile",
     "test": "karma start --single-run",
     "testc": "karma start --auto-watch"
