@@ -36,10 +36,10 @@ n => Math.random();
 `className` is a required prop – it allows multiple `Plot` components to be used on the same page.
 ### Usage Example
 
-Here's a [working example](http://anguscroll.com/react-function-plot/) and here's [the source](https://github.com/angus-c/react-function-plot/blob/gh-pages/examples.jsx) for the
+Click [here](http://anguscroll.com/react-function-plot/) to play with a working example. Here's [the source](https://github.com/angus-c/react-function-plot/blob/gh-pages/examples.jsx) for the
 example component.  
 
-![example screenshot](http://anguscroll.com/react-function-plot/screenshots/expression-and-easing.png)
+<img src="http://anguscroll.com/react-function-plot/screenshots/expression-and-easing.png" alt="example screenshot" style="width: 400px;"/>
 
 ### Tests
 
