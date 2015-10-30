@@ -24,20 +24,17 @@ import Plot from 'react-function-plot';
   thickness={4}
 />
 ```
-
-`myFunction` is any JavaScript function that takes a single numeric argument
+`fn` can be any JavaScript function that takes a single numeric argument
 ```js
 // es5
 function(t) {return 0.9/t}
 // es2015
 x => x * x
 // or even
-x => Math.random();
+n => Math.random();
 ```
-
 `className` is a required prop – it allows multiple `Plot` components to be used on the same page.
-
-### Example
+### Usage Example
 
 Here's a [working example](http://anguscroll.com/react-function-plot/) and here's [the source](https://github.com/angus-c/react-function-plot/blob/gh-pages/examples.jsx) for the
 example component.  
