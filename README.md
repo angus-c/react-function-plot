@@ -24,7 +24,7 @@ import Plot from 'react-function-plot';
   thickness={4}
 />
 ```
-`fn` can be any JavaScript function that takes a single numeric argument
+`fn` can be any JavaScript function that takes a single numeric argument...
 ```js
 // es5
 function(t) {return 0.9/t}
