@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   entry: './src/plot.jsx',
   output: {
@@ -7,10 +9,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        // es6 JavaScript
         test: /\.jsx?$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
+        loader: 'babel-loader',
         query: {
           optional: ['runtime'],
           stage: 0
