@@ -2,3 +2,4 @@
 .eslintrc
 dist
 node_modules
+tmp_test

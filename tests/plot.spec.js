@@ -19,34 +19,70 @@ class SinglePlotWrapper extends React.Component {
   }
 }
 
+class MultiplePlotWrapper extends React.Component {
+  render() {
+    return (
+      <div>
+        <Plot
+          className='plot1'
+          fn={x => x * x}
+          height={300}
+          width={300}
+          thickness={4}
+        />
+        <Plot
+          className='plot2'
+          fn={x => x * x}
+          height={300}
+          width={300}
+          thickness={4}
+        />
+      </div>
+    );
+  }
+}
+
 describe('Plot', () => {
   jsdom();
 
   let spw;
 
-  beforeEach(() => {
-    spw = ReactTestUtils.renderIntoDocument(<SinglePlotWrapper/>);
-  });
+  describe('Single Plot renderer', () => {
+    beforeEach(() => {
+      spw = ReactTestUtils.renderIntoDocument(<SinglePlotWrapper/>);
+    });
 
-  it('renders a single plot', () => {
-    const plots = ReactTestUtils.scryRenderedDOMComponentsWithClass(spw, "plot");
-    assert.isDefined(plots);
-    assert.equal(plots.length, 1);
+    it('renders a single plot', () => {
+      const plots = ReactTestUtils.scryRenderedDOMComponentsWithClass(spw, "plot");
+      assert.isDefined(plots);
+      assert.equal(plots.length, 1);
+    });
+    
+    it('(the plot) is a DIV', () => {
+      const plotNode =
+        React.findDOMNode(ReactTestUtils.findRenderedDOMComponentWithClass(spw, "plot"));
+      assert.isDefined(plotNode);
+      assert.equal(plotNode.tagName, 'DIV');
+    });
   });
   
-  it('(the plot) is a DIV', () => {
-    const plot =
-      React.findDOMNode(ReactTestUtils.findRenderedDOMComponentWithClass(spw, "plot"));
-    assert.isDefined(plot);
-    assert.equal(plot.tagName, 'DIV');
-  });
+  describe('Multiple Plot renderer', () => {
+    beforeEach(() => {
+      spw = ReactTestUtils.renderIntoDocument(<MultiplePlotWrapper/>);
+    });
 
-  it('(the plot\'s child node) is an SVG', () => {
-    const plot =
-      React.findDOMNode(ReactTestUtils.findRenderedDOMComponentWithClass(spw, "plot"));
-    const childNodes = plot.childNodes;
-    console.log(childNodes.length);
+    it('renders two plots', () => {
+      const plots = ReactTestUtils.scryRenderedDOMComponentsWithClass(spw, "plot");
+      assert.isDefined(plots);
+      assert.equal(plots.length, 2);
+    });
+    
+    it('(each plot) is a DIV', () => {
+      const plots = ReactTestUtils.scryRenderedDOMComponentsWithClass(spw, "plot");
+      plots.forEach(plot => {
+        const plotNode = React.findDOMNode(plot);
+        assert.equal(plotNode.tagName, 'DIV');
+      });
+    });
   });
-
-  
 });

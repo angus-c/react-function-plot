@@ -4,4 +4,4 @@ npm run compile
 cp -r dist/* tmp_test/src
 babel --stage 0 tests --out-file tmp_test/tests/index.js -s
 mocha tmp_test/tests/index.js
-# rm -rf tmp_test
+rm -rf tmp_test
