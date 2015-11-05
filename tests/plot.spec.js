@@ -1,6 +1,5 @@
 import { assert } from 'chai';
-import jsdom from 'mocha-jsdom';
-import Plot from '../src/plot.js';
+import Plot from '../src/plot.jsx';
 import React from 'react/addons';
 import ReactDOM from 'react-dom';
 
@@ -44,8 +43,6 @@ class MultiplePlotWrapper extends React.Component {
 }
 
 describe('Plot', () => {
-  jsdom();
-
   let spw;
 
   describe('Single Plot renderer', () => {
