@@ -1,4 +1,5 @@
 import d3 from 'd3';
+import jsdom from 'jsdom'
 
 const defaultDimensions = {
   height: 200,
@@ -20,8 +21,9 @@ export default class Plotter {
         .y(i => height - thickness / 2 - width * fn(i / width) * this.thicknessCorrection)
         .interpolate('linear');
 
+    // need to do document.querySelector before d3.select because no DOM in d3
     const svgContainer =
-      d3.select(this.selector)
+      d3.select((document || jsdom.jsdom()).querySelector(this.selector))
         .append('svg')
         .attr('width', width)
         .attr('height', height)
