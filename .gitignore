@@ -1,5 +1,4 @@
 **/.DS_Store
 .eslintrc
-dist
-node_modules
-tmp_test
+dist/
+node_modules/

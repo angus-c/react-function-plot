@@ -1,7 +1,0 @@
-#!/bin/bash -xe
-mkdir -p tmp_test/{src,tests}
-npm run compile
-cp -r dist/* tmp_test/src
-babel --stage 0 tests --out-file tmp_test/tests/index.js -s
-karma start --single-run
-# rm -rf tmp_test

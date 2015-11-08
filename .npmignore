@@ -1,5 +1,5 @@
 src/
+dist/
 tests/
-tmp_test/
 karma.conf.js
 .travis.yml
