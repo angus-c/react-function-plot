@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import easingFunctions from './lib/simplifiedEasings';
+import sanitize from './lib/santitizer';
 
 import Plot from './src/plot.jsx';
 
@@ -88,8 +89,7 @@ class Examples extends React.Component {
   }
 
   functionFromExpression(expression) {
-    // TODO: sanitize input
-    return new Function('x', 'return ' + expression);
+    return new Function('x', 'return ' + sanitize(expression));
   }
 }
 
