@@ -19,11 +19,11 @@ import Plot from 'react-function-plot';
 <Plot
   className='myPlot'
   fn={myFunction}
-  height={300}
-  width={300}
   thickness={4}
 />
 ```
+The SVG element will autosize (and auto-center) within the Plot component. (The SVG container must be a square, so the height and width of the SVG element will be set to the lesser of the height and width of the Plot component)
+
 `fn` can be any JavaScript function that takes a single numeric argument...
 ```js
 // es5
@@ -43,4 +43,8 @@ example component.
 
 ### Tests
 
-Coming soon
+```
+npm test
+```
+
+(test coverage very limited so far)
