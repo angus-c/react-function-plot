@@ -39,7 +39,7 @@ n => Math.random();
 Click [here](http://anguscroll.com/react-function-plot/) to play with a working example. Here's [the source](https://github.com/angus-c/react-function-plot/blob/gh-pages/examples.jsx) for the
 example component.  
 
-![screenshot](http://anguscroll.com/react-function-plot/screenshots/latest.png | width=600)
+![screenshot](http://anguscroll.com/react-function-plot/screenshots/latest.png)
 
 ### Tests
 
