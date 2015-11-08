@@ -1,6 +1,6 @@
 {
   "name": "react-function-plot",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "react component to plot a function as an svg path",
   "author": "Angus Croll",
   "main": "dist/plot.js",
