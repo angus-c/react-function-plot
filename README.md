@@ -10,7 +10,7 @@ npm install react-function-plot
 
 ### Usage
 
-```jsx
+```js
 // commonJS...
 var Plot = require('react-function-plot');
 // ...or es2015
